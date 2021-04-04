@@ -33,10 +33,10 @@ function solveFirstQuestion(numberArray) {
     }
 
     let product = firstAnswer * secondAnswer;
-    console.log(`First Answer: ${product}`);
+    console.log(`First Answer: ${product}`); // First Answer: 840324
 }
 
-solveFirstQuestion(numberData); // Answer: 840324
+solveFirstQuestion(numberData); 
 
 /*  Part 2:
 
@@ -65,7 +65,7 @@ function solveSecondQuestion(numberArray) {
         }
     }
     let product = firstAnswer*secondAnswer*thirdAnswer;
-    console.log(`Second Answer: ${product}`);
+    console.log(`Second Answer: ${product}`); // Second Answer: 170098110
 }
 
 solveSecondQuestion(numberData);

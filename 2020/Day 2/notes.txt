@@ -36,3 +36,4 @@ the new sequence to check if a password is valid:
     1. check if the required letter is in the password.
     2. determine if the letter is in either the first indicated index OR the second indicated index.
     3. check to see if the letter is NOT at BOTH indexes.
+    
