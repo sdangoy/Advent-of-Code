@@ -6,9 +6,11 @@ How to find the TWO numbers that produce sum of 2020?
     number1 + number2 = 2020
     number2 = 2020 - number1 <- where number1 is a number from the array of numbers.
 
-    If number2 is found in the array of numbers, then we have found the pair of numbers that when added together, equal 0. Return the two numbers and multiply them together for the answer
+    If number2 is found in the array of numbers, then we have found the pair of numbers that when added together, equal 0. Return the two numbers and multiply them together
+    for the answer
 
-To check if a number is in the array of numbers, use array.includes(...) but this method uses a linear search or O(n). To be more efficient on the search, the number array can be sorted first and use binary search for O(log n).
+To check if a number is in the array of numbers, use array.includes(...) but this method uses a linear search or O(n). To be more efficient on the search, the number array
+can be sorted first and use binary search for O(log n).
 
 A note for sorting an array of numbers:
     array.sort() is made for lexographical/alphabetically comparisons, not for numbers. To sort numbers, .sort() can receive a compare function.
@@ -32,13 +34,16 @@ How to find the THREE numbers that produce sum of 2020?
     
     firstCompliment = 2020 - number1 <- where number1 is a number from the array of numbers.
 
-    take the compliment and repeat the process. Take the first compliment and subtract it from another number in the array. If the second number from the array is smaller than the first compliment, then it may be possible to find another number in the array that when added together, will equal the first compliment.
+    take the compliment and repeat the process. Take the first compliment and subtract it from another number in the array. If the second number from the array is smaller
+    than the first compliment, then it may be possible to find another number in the array that when added together, will equal the first compliment.
     
-    if the second compliment exists in the array, then that means that there are two numbers in the array that equals the first compliment. There is another number in the array, that when added to the compliment, will have a sum of 2020.
+    if the second compliment exists in the array, then that means that there are two numbers in the array that equals the first compliment. There is another number in the
+    array, that when added to the compliment, will have a sum of 2020.
     
     Visually, it will look like this:
     2020 = (number1 + (number2 + number3)) or 2020 = (number1 + (firstCompliment)) <- where number1 is a number from the number array.
     firstCompliment = 2020 - number1 AND firstCompliment = number2 + number3 <- where number2 is another number from the number array.
-    number3 = firstCompliment - number2 <- if number3 is also found in the number array, then we have 3 values from the number array that equals 2020 when added together. Finally, just multiply them together for the answer.
+    number3 = firstCompliment - number2 <- if number3 is also found in the number array, then we have 3 values from the number array that equals 2020 when added together.
+                                            Finally, just multiply them together for the answer.
 
     
