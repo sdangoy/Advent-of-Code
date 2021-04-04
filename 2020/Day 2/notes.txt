@@ -1,0 +1,38 @@
+Notes for Problem 2.1:
+
+with the way string is formatted, regex is needed to get the need information from each string.
+
+    to split a string by its spaces, use: string.split(/\s/) where \s indicates any whitespace character (including spaces)
+
+    to get the numbers on both sides of hyphen for the character limits from its string, use: string.split(/\-/)
+
+    to remove the ':' character, use: string.replace(/\:/, '');
+
+passwordInfo is a full line of the input and is divided into 3 'sections' (limit range, character to inspect, and the password sequence) because we use regex to split up the
+string by its whitespace characters.
+    the limit range can be found in the first 'section' or passwordInfo[0]. <- was parsed from string to int to allow for numerical comparison.
+    the character that is being looked for can be found in the second 'section' or passwordInfo[1]. 
+    the password sequence can be found in the third 'section' or passwordInfo[2].
+
+there is an empty line at the end of the input.txt file, so a check to see if the current line isn't blank is required. This check was done through a simple if statement:
+    if(password) { ... do something ...}
+
+the sequence to check if a password is valid:
+    1. check if the required letter is in the password.
+    2. count the number of times the required letter appears in the password.
+    3. check if the number of times the letter appears is equal to or more than the lower limit and equal to or lower than the higher limit.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Notes for Problem 2.2:
+
+the same basic idea applies but instead of counting the number of letters, check if the letter is located in either index indicated by passwordInfo[0].
+    if the letter shows up in both indexes, then the password is considered INVALID.
+
+The index given by the data are not based off indexes starting at 0, but instead starting at 1. To get around this, subtract the indexes given to us by 1 so that the first
+letter of the password sequence starts at index 0.
+
+the new sequence to check if a password is valid:
+    1. check if the required letter is in the password.
+    2. determine if the letter is in either the first indicated index OR the second indicated index.
+    3. check to see if the letter is NOT at BOTH indexes.
