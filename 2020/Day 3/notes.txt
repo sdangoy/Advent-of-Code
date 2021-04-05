@@ -1,0 +1,17 @@
+Notes for Problem 3.1: 
+
+[31 columns, 324 rows] matrix
+horizontally, the square pattern repeats itself. This means if the x-index goes past the number of columns, it must restart from index 0.
+vertically, the square pattern will have a different pattern after the y-index goes past the number of rows.
+
+if x-index is > 30, then reset x-index back to 0. To do this:
+    1. check if x-index + 3 is over 30
+    2. if it is, subtract (x-index + 3) by 31 because we want to start with the 0 index.
+        index 28 -> index 0, index 29 -> index 1, index 30 -> index 2
+
+the map is represented by a 2D array of strings. Rows can be accessed by using one index (mapInput[row]). A specific character can be accessed using two indexes
+(mapInput[row][column]). 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Notes for Problem 3.2:
