@@ -20,14 +20,12 @@ const dataArray = data.split(/\n/);
 
 function getColumn(xIndex) {
     if (xIndex + 3 <= 30) { return xIndex + 3; }
-    else { 
-        return (xIndex + 3) - 31; // start at 0 index
-    }
+    else { return (xIndex + 3) - 31; } // start again at 0 index
 }
 
 function checkTree(character, treesHit) {
-    if(character == '#') { return treesHit+=1; }
-    else { return treesHit }
+    if (character == '#') { return treesHit+=1; }
+    else { return treesHit; }
 }
 
 function solveFirstQuestion(mapInput) {
@@ -36,7 +34,7 @@ function solveFirstQuestion(mapInput) {
     while (row < mapInput.length - 1) { // mapInput.length - 1 is the last row of the map 
         column = getColumn(column);
         row++; // increment row + 1 until it reaches bottom of the map
-        treesHit = checkTree(mapInput[row][column], treesHit);
+        treesHit = checkTree(mapInput[row][column], treesHit); // check current location if it has a tree (character at mapInput[row][column] = #)
     }
 
     console.log(`First Answer: ${treesHit}`); // First Answer: 250
