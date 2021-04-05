@@ -1,8 +1,8 @@
 Notes for Problem 3.1: 
 
-[31 columns, 324 rows] matrix
+[31 columns, 322 rows] matrix
 horizontally, the square pattern repeats itself. This means if the x-index goes past the number of columns, it must restart from index 0.
-vertically, the square pattern will have a different pattern after the y-index goes past the number of rows.
+vertically, the pattern will change because each row has a different pattern.
 
 if x-index is > 30, then reset x-index back to 0. To do this:
     1. check if x-index + 3 is over 30
@@ -12,9 +12,14 @@ if x-index is > 30, then reset x-index back to 0. To do this:
 the map is represented by a 2D array of strings. Rows can be accessed by using one index (mapInput[row]). A specific character can be accessed using two indexes
 (mapInput[row][column]). 
 
-because the matrix has 324 rows, it has an index range of 0-323. When going through the row loop, make sure it stops at 323 rows (or mapInput.length - 1) or else index 324
+because the matrix has 323 rows, it has an index range of 0-322. When going through the row loop, make sure it stops at row 322 (or mapInput.length - 1) or else index 323
 will result in undefined.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Notes for Problem 3.2:
+
+the same map and concepts apply but need a more concise function that can take different values for row and column as arguments.
+    functions must have at least one argument for row or column value.
+
+    1,1 = 2; 3,1 = 7; 5,1 = 3; 7,1 = 4; 1,2 = 2

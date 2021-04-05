@@ -41,3 +41,31 @@ function solveFirstQuestion(mapInput) {
 }
 
 solveFirstQuestion(dataArray);
+
+/*  Part 2:
+
+Determine the number of trees you would encounter if, for each of the following slopes, you start at the top-left corner and traverse the map all the way to the bottom:
+
+Right 1, down 1.
+Right 3, down 1. (This is the slope you already checked.)
+Right 5, down 1.
+Right 7, down 1.
+Right 1, down 2.
+
+What do you get if you multiply together the number of trees encountered on each of the listed slopes?
+
+*/
+
+function checkTreesHit(map, rightValue, downValue) {
+    let row = 0;
+    while (row + downValue < map.length - 1) {
+        row = row + downValue;
+        console.log(`row: ${row}`);
+    }
+}
+
+function solveSecondQuestion(mapInput) {
+    checkTreesHit(mapInput, 1, 2);
+}
+
+solveSecondQuestion(dataArray);
