@@ -18,9 +18,6 @@ const fs = require('fs');
 const data = fs.readFileSync('input.txt', {encoding: 'utf8', flag:'r'});
 const dataArray = data.split(/\n/);
 
-// let xIndex, yIndex = 0;
-const sample = dataArray[1];
-
 function getColumn(xIndex) {
     if (xIndex + 3 <= 30) { return xIndex + 3; }
     else { 
@@ -28,30 +25,21 @@ function getColumn(xIndex) {
     }
 }
 
-function getRow(input, yIndex) {
-    if (yIndex + 1 <= input.length) {
-        return yIndex + 1;
-    }
-    else {
-        return yIndex;
-    }
-}
-
 function checkTree(character, treesHit) {
-    if(character == '#') { treesHit = treesHit + 1; }
+    if(character == '#') { return treesHit+=1; }
+    else { return treesHit }
 }
 
 function solveFirstQuestion(mapInput) {
     let column = 0, row = 0, treesHit = 0;
-    column = getColumn(column);
-    row = getRow(mapInput, row);
-    checkTree(mapInput[row][column], treesHit);
 
-    console.log(`xIndex: ${column}, yIndex: ${row}`);
-    console.log(mapInput[row - 1]);
-    console.log(mapInput[row]);
-    console.log(`dataArray[${row}][${column}]`);
-    console.log(treesHit);
+    while (row < mapInput.length - 1) { // mapInput.length - 1 is the last row of the map 
+        column = getColumn(column);
+        row++; // increment row + 1 until it reaches bottom of the map
+        treesHit = checkTree(mapInput[row][column], treesHit);
+    }
+
+    console.log(`First Answer: ${treesHit}`); // First Answer: 250
 }
 
 solveFirstQuestion(dataArray);

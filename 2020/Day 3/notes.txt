@@ -12,6 +12,9 @@ if x-index is > 30, then reset x-index back to 0. To do this:
 the map is represented by a 2D array of strings. Rows can be accessed by using one index (mapInput[row]). A specific character can be accessed using two indexes
 (mapInput[row][column]). 
 
+because the matrix has 324 rows, it has an index range of 0-323. When going through the row loop, make sure it stops at 323 rows (or mapInput.length - 1) or else index 324
+will result in undefined.
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Notes for Problem 3.2:
