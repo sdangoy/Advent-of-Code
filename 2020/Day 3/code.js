@@ -20,21 +20,17 @@ const dataArray = data.split(/\n/);
 
 function getColumn(xIndex) {
     if (xIndex + 3 <= 30) { return xIndex + 3; }
-    else { return (xIndex + 3) - 31; } // start again at 0 index
+    else { return (xIndex + 3) - 31; } // start again at [0] if currentColumn goes past [30]
 }
 
-function checkTree(character, treesHit) {
-    if (character == '#') { return treesHit+=1; }
-    else { return treesHit; }
-}
-
-function solveFirstQuestion(mapInput) {
+function solveFirstQuestion(map) {
     let column = 0, row = 0, treesHit = 0;
 
-    while (row < mapInput.length - 1) { // mapInput.length - 1 is the last row of the map 
+    while (row < map.length - 1) { // traverse map until mapInput.length - 1, which is the last row of the map 
         column = getColumn(column);
         row++; // increment row + 1 until it reaches bottom of the map
-        treesHit = checkTree(mapInput[row][column], treesHit); // check current location if it has a tree (character at mapInput[row][column] = #)
+        
+        if (map[row][column] == '#') { treesHit++; } // can be turned into function to reduce repetitive code, see notes.txt
     }
 
     console.log(`First Answer: ${treesHit}`); // First Answer: 250
@@ -55,17 +51,30 @@ Right 1, down 2.
 What do you get if you multiply together the number of trees encountered on each of the listed slopes?
 
 */
+function getNextColumn(currentColumn, amountRight) {
+    if (currentColumn + amountRight <= 30) { return currentColumn + amountRight; } // instead of hardcoding # to increment, pass a variable instead to be more flexible
+    else { return (currentColumn + amountRight) - 31; } // start again at [0] if currentColumn goes past [30]
+}
+
+function getNextRow(currentRow, amountDown) {
+    return currentRow + amountDown;
+}
 
 function checkTreesHit(map, rightValue, downValue) {
-    let row = 0;
-    while (row + downValue < map.length - 1) {
-        row = row + downValue;
-        console.log(`row: ${row}`);
+    let column = 0, row = 0, treesHit = 0;
+    while (row + downValue <= map.length - 1) { // check if (row + # to go down) does not go past row 322 BEFORE doing any calculations
+        column = getNextColumn(column, rightValue)
+        row = getNextRow(row, downValue);
+
+        if (map[row][column] == '#') { treesHit++; } // can be turned into function to reduce repetitive code, see notes.txt
     }
+
+    return treesHit;
 }
 
 function solveSecondQuestion(mapInput) {
-    checkTreesHit(mapInput, 1, 2);
+    console.log('Second Answer: ' + checkTreesHit(mapInput, 1, 1)*checkTreesHit(mapInput, 3, 1)*checkTreesHit(mapInput, 5, 1)*checkTreesHit(mapInput, 7, 1)*checkTreesHit(mapInput, 1, 2));
+    // Second Answer: 1592662500
 }
 
 solveSecondQuestion(dataArray);

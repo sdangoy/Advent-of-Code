@@ -1,6 +1,6 @@
 Notes for Problem 3.1: 
 
-[31 columns, 322 rows] matrix
+[31 columns, 323 rows] matrix
 horizontally, the square pattern repeats itself. This means if the x-index goes past the number of columns, it must restart from index 0.
 vertically, the pattern will change because each row has a different pattern.
 
@@ -12,7 +12,7 @@ if x-index is > 30, then reset x-index back to 0. To do this:
 the map is represented by a 2D array of strings. Rows can be accessed by using one index (mapInput[row]). A specific character can be accessed using two indexes
 (mapInput[row][column]). 
 
-because the matrix has 323 rows, it has an index range of 0-322. When going through the row loop, make sure it stops at row 322 (or mapInput.length - 1) or else index 323
+because the matrix has 323 rows, it has an index row range of 0-322. When going through the row loop, make sure it stops at row 322 (or mapInput.length - 1) or else index 323
 will result in undefined.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -20,6 +20,15 @@ will result in undefined.
 Notes for Problem 3.2:
 
 the same map and concepts apply but need a more concise function that can take different values for row and column as arguments.
-    functions must have at least one argument for row or column value.
+    functions must have at least 2 arguments, one for row and another one for column value.
 
-    1,1 = 2; 3,1 = 7; 5,1 = 3; 7,1 = 4; 1,2 = 2
+with the introduction to a +2 down compared to just the +1 downs previously, we should check (beforehand) if (row + # of times to go down) will not exceed the 322nd row:
+    while (currentRow + # of times to go down < 322) ...but this evaluation will stop at row 320 because (320 + 2 < 322) will not execute.
+
+    Instead of <, <= is needed to make sure that we traverse to the end. (320 + 2 <= 322) will execute and not go further than the 322nd row.
+
+* originally I had a function that incremented the number of trees hit to reduce repetitive code, but I removed it since it could be written with only one line of code:
+    function checkTree(character, treesHit) {
+        if (character == '#') { return treesHit+=1; }
+        else { return treesHit; }
+    }
