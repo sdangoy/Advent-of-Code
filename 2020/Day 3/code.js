@@ -18,9 +18,9 @@ const fs = require('fs');
 const data = fs.readFileSync('input.txt', {encoding: 'utf8', flag:'r'});
 const dataArray = data.split(/\n/);
 
-function getColumn(xIndex) {
-    if (xIndex + 3 <= 30) { return xIndex + 3; }
-    else { return (xIndex + 3) - 31; } // start again at [0] if currentColumn goes past [30]
+function getColumn(currentColumn) {
+    if (currentColumn + 3 <= 30) { return currentColumn + 3; }
+    else { return (currentColumn + 3) - 31; } // start again at [0] if currentColumn goes past [30]
 }
 
 function solveFirstQuestion(map) {
