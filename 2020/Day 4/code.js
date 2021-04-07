@@ -20,7 +20,7 @@ const dataArray = data.split(/\n/);
 function traversePassportArray(passports, startIndex) {
     let index = startIndex;
 
-    while (passports[index] != '') { // while an empty string is not reached yet
+    while (passports[index] != '') { // while an empty string is not reached yet. See notes.txt to see why we're looking for empty strings.
         index++;
     }
     return index; // return the index that indicates the end of a passport entry
@@ -30,7 +30,7 @@ function getFullPassportInfo(passports, startIndex, endIndex) {
     let passportArray = passports.slice(startIndex, endIndex);  // slice out only one passport entry from the array of strings holding passport entries
     let passport = '';
 
-    passportArray.forEach(item => { // for each line that a passport entry has, concatenate them together to make one string holding all fields, seperated by a space in between
+    passportArray.forEach(item => { // for each line that a passport entry has, concatenate them together so one string holds all fields, seperated by spaces in between
         passport = passport + ' ' + item;
     })
     return passport;

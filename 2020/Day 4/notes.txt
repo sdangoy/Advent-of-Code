@@ -1,7 +1,7 @@
 Notes for Problem 3.1: 
 
 passports MUST have the following 7 fields:                             Sequences are also in the form of key:value pairs seperated by spaces or newlines
-    - byr (Birth Year)          - hcl (Hair Color)                      PASSPORTS ARE SEPERATED BY BLANK LINES but the key:value pairs in same passport can be in new lines.
+    - byr (Birth Year)          - hcl (Hair Color)                      PASSPORTS ARE SEPERATED BY BLANK LINES
     - iyr (Issue Year)          - ecl (Eye Color)                       
     - eyr  (Expiration Year)    - pid (Passport ID)                         
     - hgt (Height)                                     
@@ -18,9 +18,9 @@ to determine the start/end of each passport entry, we can use two "pointing" var
     1. at the very beginning, startPassport will be intialized to 0, with endPassport initialized to the startPassport.
     2. traverse through the array (same thing as traversing through each line of the input). As we iterate through, keep track of the array index with another variable
        (index) until we reach an empty string (''). 
-    3. set endPassport to the index and use the string method .splice(startPassport, endPassort) to get the information regarding one passport entry.
+    3. when empty string is reached, set endPassport to current index and use string method .splice(startPassport, endPassort) to get info for one passport entry.
     4. evaluate passport to see if its valid.
-    5. set startPassport to endPassport and restart process.
+    5. set startPassport to endPassport + 1 (the line after the line break) and restart process.
 
 evaluating the validity of a passport can go about like this:
     1. get all the lines from the input for one passport entry.
