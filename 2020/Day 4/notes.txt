@@ -1,0 +1,40 @@
+Notes for Problem 3.1: 
+
+passports MUST have the following 7 fields:                             Sequences are also in the form of key:value pairs seperated by spaces or newlines
+    - byr (Birth Year)          - hcl (Hair Color)                      PASSPORTS ARE SEPERATED BY BLANK LINES but the key:value pairs in same passport can be in new lines.
+    - iyr (Issue Year)          - ecl (Eye Color)                       
+    - eyr  (Expiration Year)    - pid (Passport ID)                         
+    - hgt (Height)                                     
+
+the following field is OPTIONAL. It is not necessary to have:
+    - cid (Country ID)
+
+because passport information may be breaken up into multiple lines, we want to capture the info from each line first, before we decide on which lines together make up all
+the information for one passport. We can use the following regex to create an array of strings for each line in the input:
+    dataArray.split(/\n/) <- because each passport is seperated by blank lines (meaning a \n character or '' seperates each passport entry), there will be empty strings in
+                             the array. We can use this to determine the start/end of each passport entry.
+
+to determine the start/end of each passport entry, we can use two "pointing" variables that point at the start (startPassport) and the end (endPassort) of each entry.
+    1. at the very beginning, startPassport will be intialized to 0, with endPassport initialized to the startPassport.
+    2. traverse through the array (same thing as traversing through each line of the input). As we iterate through, keep track of the array index with another variable
+       (index) until we reach an empty string (''). 
+    3. set endPassport to the index and use the string method .splice(startPassport, endPassort) to get the information regarding one passport entry.
+    4. evaluate passport to see if its valid.
+    5. set startPassport to endPassport and restart process.
+
+evaluating the validity of a passport can go about like this:
+    1. get all the lines from the input for one passport entry.
+    2. concatenate all the lines together to make one line, using white space between each string. // not necessary, but will help visually
+    3. check each field if all required fields are provided
+        - we can check the number of fields given by using regex to split them by whitespace
+            - if array of fields has a length less than the required 7, then it is invalid.
+            - if array of fields has a length of 7, check to see if cid is one of the fields. If it is, then it is invalid.
+            - if array of fields has a length of more than 7, then it is valid (because the minimum number of fields has been met).
+    4. if passport is valid, update number of valid passports
+
+* line 57: startIndex becomes endIndex + 1 (the line after the line break between passports). To know if we reached the end of the input.txt file, if endIndex + 1 gives us
+more than the number of lines in the input (1147), stop executing the while loop.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Notes for Problem 3.2:
