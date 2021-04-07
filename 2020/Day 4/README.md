@@ -81,6 +81,8 @@ ecl invalid: wat <br>
 
 pid valid:   000000001 <br>
 pid invalid: 0123456789 <br>
+
+
 Here are some invalid passports: <br>
 
 eyr:1972 cid:100 <br>
@@ -96,6 +98,8 @@ ecl:brn hgt:182cm pid:021572410 eyr:2020 byr:1992 cid:277 <br>
 hgt:59cm ecl:zzz <br>
 eyr:2038 hcl:74454a iyr:2023 <br>
 pid:3556412378 byr:2007 <br>
+
+
 Here are some valid passports: <br>
 
 pid:087499704 hgt:74in ecl:grn iyr:2012 eyr:2030 byr:1980 <br>
