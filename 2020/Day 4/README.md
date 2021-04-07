@@ -15,6 +15,7 @@ hcl (Hair Color) <br>
 ecl (Eye Color) <br>
 pid (Passport ID) <br>
 cid (Country ID) <br>
+
 Passport data is validated in batch files (your puzzle input). Each passport is represented as a sequence of key:value pairs separated by spaces or newlines. Passports are separated by blank lines.
 
 Here is an example batch file containing four passports:
@@ -32,6 +33,7 @@ hgt:179cm <br>
 
 hcl:#cfa07d eyr:2025 pid:166559648 <br>
 iyr:2011 ecl:brn hgt:59in <br>
+
 The first passport is valid - all eight fields are present. The second passport is invalid - it is missing hgt (the Height field).
 
 The third passport is interesting; the only missing field is cid, so it looks like data from North Pole Credentials, not a passport at all! Surely, nobody would mind if you made the system temporarily ignore missing cid fields. Treat this "passport" as valid.
@@ -53,8 +55,8 @@ byr (Birth Year) - four digits; at least 1920 and at most 2002. <br>
 iyr (Issue Year) - four digits; at least 2010 and at most 2020. <br>
 eyr (Expiration Year) - four digits; at least 2020 and at most 2030. <br>
 hgt (Height) - a number followed by either cm or in: <br>
-If cm, the number must be at least 150 and at most 193. <br>
-If in, the number must be at least 59 and at most 76. <br>
+    - If cm, the number must be at least 150 and at most 193. <br>
+    - If in, the number must be at least 59 and at most 76. <br>
 hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f. <br>
 ecl (Eye Color) - exactly one of: amb blu brn gry grn hzl oth. <br>
 pid (Passport ID) - a nine-digit number, including leading zeroes. <br>
